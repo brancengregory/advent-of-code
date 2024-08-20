@@ -13,8 +13,27 @@ For example:
 * `^>v<` delivers presents to `4` houses in a square, including twice to the house at his starting/ending location.
 * `^v^v^v^v^v` delivers a bunch of presents to some very lucky children at only `2` houses.
 
-To begin, [get your puzzle input](3/input).
+Your puzzle answer was `2565`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+The next year, to speed up the process, Santa creates a robot version of himself, *Robo-Santa*, to deliver presents with him.
+
+Santa and Robo-Santa start at the same location (delivering two presents to the same starting house), then take turns moving based on instructions from the elf, who is eggnoggedly reading from the same script as the previous year.
+
+This year, how many houses receive *at least one present*?
+
+For example:
+
+* `^v` delivers presents to `3` houses, because Santa goes north, and then Robo-Santa goes south.
+* `^>v<` now delivers presents to `3` houses, and Santa and Robo-Santa end up back where they started.
+* `^v^v^v^v^v` now delivers presents to `11` houses, with Santa going one direction and Robo-Santa going the other.
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Perfectly+Spherical+Houses+in+a+Vacuum%22+%2D+Day+3+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F3&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](3/input).
+
+You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Perfectly+Spherical+Houses+in+a+Vacuum%22+%2D+Day+3+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F3&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
