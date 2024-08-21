@@ -1,0 +1,8 @@
+[package]
+name = "rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+faer = "0.19.1"
+regex = "1.10.6"
