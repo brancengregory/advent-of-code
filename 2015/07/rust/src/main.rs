@@ -17,7 +17,7 @@ impl From<&str> for Operator {
             "LSHIFT" => Operator::LShift,
             "RSHIFT" => Operator::RShift,
             "NOT" => Operator::Not,
-            _ => panic!()
+            _ => panic!("Could not parse operator string: {:?}", value)
         }
     }
 }
@@ -38,7 +38,6 @@ impl From<&str> for Operand {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
 struct Instruction {
-    value: Option<String>,
     operator: Option<Operator>,
     operands: Option<Vec<Operand>>,
     target: String
@@ -50,15 +49,14 @@ impl From<&str> for Instruction {
             .split_whitespace()
             .filter(|x| !x.is_empty())
             .collect();
-    
+
         let i = match splits.len() {
             3 => {
-                let value = splits[0].to_string();
+                let operands = vec![Operand::from(splits[0])];
                 let target = splits[2].to_string();
                 Instruction {
-                    value: Some(value),
                     operator: None,
-                    operands: None,
+                    operands: Some(operands),
                     target
                 }
             },
@@ -67,7 +65,6 @@ impl From<&str> for Instruction {
                 let operands = vec![Operand::from(splits[1])];
                 let target = splits[3].to_string();
                 Instruction {
-                    value: None,
                     operator: Some(operator),
                     operands: Some(operands),
                     target
@@ -81,7 +78,6 @@ impl From<&str> for Instruction {
                 ];
                 let target = splits[4].to_string();
                 Instruction {
-                    value: None,
                     operator: Some(operator),
                     operands: Some(operands),
                     target
@@ -89,9 +85,9 @@ impl From<&str> for Instruction {
             },
             _ => panic!()
         };
-    
+
         return i
-    }    
+    }
 }
 
 impl Instruction {
@@ -102,7 +98,6 @@ impl Instruction {
 
         let value = if let Some(operator) = &self.operator {
             let operands = self.operands.as_ref().unwrap();
-            println!("{:?}", operands);
             match operator {
                 Operator::And => {
                     let left = operands[0].evaluate(cache, instructions);
@@ -175,11 +170,20 @@ fn read_instructions(p: &str) -> HashMap<String, Instruction> {
 fn main() {
     let instructions = read_instructions("../input");
     let mut result_cache: HashMap<String, i64> = HashMap::new();
+    let mut ans1: i64 = 0;
 
     if let Some(instruction) = instructions.get("a") {
-        let ans1 = instruction.evaluate(&mut result_cache, &instructions);
+        ans1 = instruction.evaluate(&mut result_cache, &instructions);
         println!("Problem 1: {:?}", ans1)
     } else {
         println!("No instructions found")
     }
+
+    result_cache.clear();
+    result_cache.insert("b".to_string(), ans1);
+
+    let ans2 = instructions.get("a").unwrap_or_else(|| panic!("No instruction found"))
+        .evaluate(&mut result_cache, &instructions);
+
+    println!("Problem 2: {:?}", ans2);
 }
