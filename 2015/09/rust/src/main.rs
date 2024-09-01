@@ -77,13 +77,12 @@ fn fill(dpt: &mut DPTable, dl: &DistanceLookup, c: &Vec<String>, f: &FillMethod)
                                     }
                                 }
                             } else {
-                                println!("No distance found between {} and {}", c[u], c[v]);
+                                panic!("No distance found between {} and {}", c[u], c[v]);
                             }
                         }
                     }
                 } else {
-                    // This is where the panic is happening
-                    println!("No entry found for mask: {:08b}, u: {} ({})", mask, u, c[u]);
+                    panic!("No entry found for mask: {:08b}, u: {} ({})", mask, u, c[u]);
                 }
             }
         }
@@ -94,7 +93,7 @@ fn evaluate(m: &FillMethod, dl: &DistanceLookup, c: &Vec<String>) -> i64 {
     let mut dp_table: DPTable = HashMap::new();
     fill(&mut dp_table, &dl, &c, m);
 
-    let ans_mask: u64 = (1 << c.len()) - 1; // All cities visited
+    let ans_mask: u64 = (1 << c.len()) - 1;
     let mut dist: i64 = match m {
         FillMethod::MaxDistance => i64::MIN,
         FillMethod::MinDistance => i64::MAX
