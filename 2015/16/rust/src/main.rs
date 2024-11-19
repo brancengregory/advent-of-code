@@ -1,5 +1,9 @@
-use std::{fs::File, io::{Error, Read, Result}, ops::Add};
 use regex::Regex;
+use std::{
+    fs::File,
+    io::{Error, Read, Result},
+    ops::Add,
+};
 
 fn read_input(p: &str) -> Result<Vec<String>> {
     let mut f = File::open(p)?;
@@ -11,7 +15,7 @@ fn read_input(p: &str) -> Result<Vec<String>> {
 
 #[derive(Debug)]
 struct Record {
-    items: Vec<(String, i8)>
+    items: Vec<(String, i8)>,
 }
 
 impl Record {
@@ -28,101 +32,92 @@ impl Record {
             })
             .collect();
 
-        Record {
-            items
-        }
+        Record { items }
     }
 }
 
 #[derive(Debug, Clone, Copy)]
 struct Sue {
-    children: i8,
-    cats: i8,
-    samoyeds: i8,
-    pomeranians: i8,
-    akitas: i8,
-    vizslas: i8,
-    goldfish: i8,
-    trees: i8,
-    cars: i8,
-    perfumes: i8
+    children: Option<i8>,
+    cats: Option<i8>,
+    samoyeds: Option<i8>,
+    pomeranians: Option<i8>,
+    akitas: Option<i8>,
+    vizslas: Option<i8>,
+    goldfish: Option<i8>,
+    trees: Option<i8>,
+    cars: Option<i8>,
+    perfumes: Option<i8>,
 }
 
 impl Sue {
     fn new() -> Self {
         Sue {
-            children: 0,
-            cats: 0,
-            samoyeds: 0,
-            pomeranians: 0,
-            akitas: 0,
-            vizslas: 0,
-            goldfish: 0,
-            trees: 0,
-            cars: 0,
-            perfumes: 0
+            children: None,
+            cats: None,
+            samoyeds: None,
+            pomeranians: None,
+            akitas: None,
+            vizslas: None,
+            goldfish: None,
+            trees: None,
+            cars: None,
+            perfumes: None,
         }
     }
 
     fn from(r: Record) -> Self {
         let mut s = Sue::new();
-        r.items.iter().for_each(|(name, value)| {
-            match name.as_str() {
-                "children" => s.children = *value,
-                "cats" => s.cats = *value,
-                "samoyeds" => s.samoyeds = *value,
-                "pomeranians" => s.pomeranians = *value,
-                "akitas" => s.akitas = *value,
-                "vizslas" => s.vizslas = *value,
-                "goldfish" => s.goldfish = *value,
-                "trees" => s.trees = *value,
-                "cars" => s.cars = *value,
-                "perfumes" => s.perfumes = *value,
+        r.items
+            .iter()
+            .for_each(|(name, value)| match name.as_str() {
+                "children" => s.children = Some(*value),
+                "cats" => s.cats = Some(*value),
+                "samoyeds" => s.samoyeds = Some(*value),
+                "pomeranians" => s.pomeranians = Some(*value),
+                "akitas" => s.akitas = Some(*value),
+                "vizslas" => s.vizslas = Some(*value),
+                "goldfish" => s.goldfish = Some(*value),
+                "trees" => s.trees = Some(*value),
+                "cars" => s.cars = Some(*value),
+                "perfumes" => s.perfumes = Some(*value),
                 _ => panic!("Bad field"),
-            }
-        });
+            });
 
         s
     }
 
     fn matches(&self, other: &Sue) -> bool {
-        (self.children == 0 || self.children == other.children) &&
-        (self.cats == 0 || self.cats == other.cats) &&
-        (self.samoyeds == 0 || self.samoyeds == other.samoyeds) &&
-        (self.pomeranians == 0 || self.pomeranians == other.pomeranians) &&
-        (self.akitas == 0 || self.akitas == other.akitas) &&
-        (self.vizslas == 0 || self.vizslas == other.vizslas) &&
-        (self.goldfish == 0 || self.goldfish == other.goldfish) &&
-        (self.trees == 0 || self.trees == other.trees) &&
-        (self.cars == 0 || self.cars == other.cars) &&
-        (self.perfumes == 0 || self.perfumes == other.perfumes)
+        (self.children.is_none() || self.children == other.children)
+            && (self.cats.is_none() || self.cats == other.cats)
+            && (self.samoyeds.is_none() || self.samoyeds == other.samoyeds)
+            && (self.pomeranians.is_none() || self.pomeranians == other.pomeranians)
+            && (self.akitas.is_none() || self.akitas == other.akitas)
+            && (self.vizslas.is_none() || self.vizslas == other.vizslas)
+            && (self.goldfish.is_none() || self.goldfish == other.goldfish)
+            && (self.trees.is_none() || self.trees == other.trees)
+            && (self.cars.is_none() || self.cars == other.cars)
+            && (self.perfumes.is_none() || self.perfumes == other.perfumes)
     }
 
-    fn newly_matches(&self, gift_sue: &Sue) -> bool {
-        let exact_match = |sue_val, gift_val| {
-            if gift_val == 0 {
-                true // If `gift_sue`'s value is 0, allow any value in `Sue`
-            } else {
-                sue_val == gift_val // Otherwise, must be an exact match
-            }
-        };
-
-        exact_match(self.children, gift_sue.children) &&
-        exact_match(self.samoyeds, gift_sue.samoyeds) &&
-        exact_match(self.akitas, gift_sue.akitas) &&
-        exact_match(self.vizslas, gift_sue.vizslas) &&
-        exact_match(self.cars, gift_sue.cars) &&
-        exact_match(self.perfumes, gift_sue.perfumes) &&
-        (gift_sue.cats == 0 || self.cats > gift_sue.cats) &&  // Cats must be greater than in gift_sue
-        (gift_sue.trees == 0 || self.trees > gift_sue.trees) &&  // Trees must be greater than in gift_sue
-        (gift_sue.pomeranians == 0 || self.pomeranians < gift_sue.pomeranians) &&  // Pomeranians must be less than in gift_sue
-        (gift_sue.goldfish == 0 || self.goldfish < gift_sue.goldfish) // Goldfish must be less than in gift_sue
+    fn ranged_matches(&self, other: &Sue) -> bool {
+        (self.children.is_none() || self.children == other.children)
+            && (self.samoyeds.is_none() || self.samoyeds == other.samoyeds)
+            && (self.akitas.is_none() || self.akitas == other.akitas)
+            && (self.vizslas.is_none() || self.vizslas == other.vizslas)
+            && (self.cars.is_none() || self.cars == other.cars)
+            && (self.perfumes.is_none() || self.perfumes == other.perfumes)
+            && (self.cats.is_none() || self.cats > other.cats)
+            && (self.trees.is_none() || self.trees > other.trees)
+            && (self.pomeranians.is_none() || self.pomeranians < other.pomeranians)
+            && (self.goldfish.is_none() || self.goldfish < other.goldfish)
     }
 }
 
-fn main() -> Result<()>{
+fn main() -> Result<()> {
     let input: Vec<String> = read_input("../input")?;
-    let aunts: Vec<Sue> = input.into_iter()
+    let aunts: Vec<Sue> = input
+        .into_iter()
         .map(|s| {
             let r = Record::from(s);
             Sue::from(r)
@@ -130,43 +125,35 @@ fn main() -> Result<()>{
         .collect();
 
     let gift_sue = Sue {
-        children: 3,
-        cats: 7,
-        samoyeds: 2,
-        pomeranians: 3,
-        akitas: 0,
-        vizslas: 0,
-        goldfish: 5,
-        trees: 3,
-        cars: 2,
-        perfumes: 1
+        children: Some(3),
+        cats: Some(7),
+        samoyeds: Some(2),
+        pomeranians: Some(3),
+        akitas: Some(0),
+        vizslas: Some(0),
+        goldfish: Some(5),
+        trees: Some(3),
+        cars: Some(2),
+        perfumes: Some(1),
     };
 
-    let which_sue: usize = aunts.iter().enumerate()
+    let which_sue: usize = aunts
+        .iter()
+        .enumerate()
         .position(|(_, s)| s.matches(&gift_sue))
-        .unwrap()
+        .expect("No compatible Sue found!")
         .add(1);
 
     println!("{:?}", which_sue);
 
-/*     for (i, sue) in aunts.iter().enumerate() {
-        let matches = sue.newly_matches(&gift_sue);
-        println!("Sue #{} matches: {} - {:?}", i + 1, matches, sue);
-    }
+    let which_sue: usize = aunts
+        .iter()
+        .enumerate()
+        .position(|(_, s)| s.ranged_matches(&gift_sue))
+        .expect("No compatible Sue found!")
+        .add(1);
 
-    let which_sue_new = aunts.iter().enumerate()
-        .position(|(_, s)| s.newly_matches(&gift_sue))
-        .map(|i| i + 1);  // Convert zero-based index to one-based
+    println!("{:?}", which_sue);
 
-    match which_sue_new {
-        Some(index) => println!("Newly matching Sue found at index: {}", index),
-        None => println!("No newly matching Sue found"),
-    }
- */
-    let test: Vec<&Sue> = aunts.iter()
-        .filter(|&x| x.children == 3 && x.perfumes == 1)
-        .collect();
-    println!("{:?}", test);
-    
     Ok(())
 }
