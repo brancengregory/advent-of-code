@@ -1,4 +1,4 @@
-# Advent of Code Repository
+# Advent of Code
 
 Welcome to my **Advent of Code** repository! This project is my attempt to solve [Advent of Code](https://adventofcode.com/) puzzles across multiple years, primarily using Rust, with some solutions written in R or other languages. This repository reflects my journey through problem-solving, learning, and coding.
 
