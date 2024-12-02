@@ -15,6 +15,7 @@ For example:
     . 
     ├── 2015 
     │ ├── 01
+    | | ├── input
     │ │ ├── puzzle.md
     │ │ ├── rust
     | | | ├── Cargo.toml
@@ -37,12 +38,12 @@ For example:
 ## 🛠️ Tools Used
 
 ### **Rust**
-- I use the \[`aoc\`](https://github.com/gobanos/cargo-aoc) CLI tool for scaffolding, fetching inputs \(not pushed to Git due to Advent of Code\'s license\), and running solutions.
+- I use the [`aoc`](https://github.com/gobanos/cargo-aoc) CLI tool for scaffolding, fetching inputs (not pushed to Git due to Advent of Code's license), and running solutions.
 - Most solutions are implemented in Rust, leveraging its speed and safety for complex calculations.
 
 ### **R**
 - Occasionally, I solve puzzles in R, especially for puzzles that require extensive data manipulation or statistical computation.
-- Solutions are in the \`r\` or \`R\` subdirectories for respective days.
+- Solutions are in the `r` or `R` subdirectories for respective days.
 
 ### **Other Languages**
 - While rare, I might explore solutions in other languages for variety or to experiment with different approaches.
@@ -50,7 +51,7 @@ For example:
 
 ## ⚠️ Input Files
 
-**Note:** Puzzle input files are not included in this repository due to Advent of Code\'s licensing policy. If you\'d like to run the solutions locally, use the \`aoc\` CLI tool or download your inputs directly from the Advent of Code website after logging in.
+**Note:** Puzzle input files are not included in this repository due to Advent of Code's licensing policy. If you'd like to run the solutions locally, use the `aoc` CLI tool or download your inputs directly from the Advent of Code website after logging in.
 
 
 ## 🎯 How to Use
