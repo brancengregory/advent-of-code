@@ -11,6 +11,7 @@ The repository is organized by year, then by day. Each day\'s folder contains:
 - Language-specific subdirectories \(e.g., `rust`, `r`\) for solutions.
 
 For example:
+
     ```
     . 
     ├── 2015 
