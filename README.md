@@ -12,7 +12,6 @@ The repository is organized by year, then by day. Each day\'s folder contains:
 
 For example:
 
-    ```
     . 
     ├── 2015 
     │ ├── 01
@@ -34,7 +33,6 @@ For example:
     | | | └── src
     | | | | └── main.rs
     | └── ...
-    ```
 
 ## 🛠️ Tools Used
 
