@@ -24,10 +24,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let dont = Regex::new(r#"don't\(\)"#).unwrap();
     let do_regex = Regex::new(r#"do\(\)"#).unwrap();
 
-    let mut collecting = true;
-    let mut total_sum = 0;
-    let mut current_sum = 0;
-
     // Create an iterator for all matches (both `mul`, `don't()`, and `do()`)
     let combined_regex =
         Regex::new(r#"mul\(([0-9]{1,3}),([0-9]{1,3})\)|don't\(\)|do\(\)"#).unwrap();
@@ -61,6 +57,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         })
         .sum();
+    
     println!("Part 2: {:?}", ans);
+    
     Ok(())
 }
