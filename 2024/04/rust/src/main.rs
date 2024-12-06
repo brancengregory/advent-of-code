@@ -1,6 +1,6 @@
 use std::fs::read_to_string;
 
-fn search_grid(grid: &[Vec<char>], word: &str) -> usize {
+fn count_xmas(grid: &[Vec<char>], word: &str) -> usize {
     let word_len = word.len();
     let word_chars: Vec<char> = word.chars().collect();
     let rows = grid.len();
@@ -50,7 +50,7 @@ fn search_grid(grid: &[Vec<char>], word: &str) -> usize {
     count
 }
 
-fn count_xmas(grid: &[Vec<char>]) -> usize {
+fn count_x_mas(grid: &[Vec<char>]) -> usize {
     let rows = grid.len();
     let cols = grid[0].len();
 
@@ -86,10 +86,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let grid: Vec<Vec<char>> = input.lines().map(|line| line.chars().collect()).collect();
 
     // Search for "XMAS"
-    let count = search_grid(&grid, "XMAS");
+    let count = count_xmas(&grid, "XMAS");
     println!("Part 1: {:?}", count);
 
-    let count = count_xmas(&grid);
+    let count = count_x_mas(&grid);
     println!("Part 2: {:?}", count);
     Ok(())
 }
