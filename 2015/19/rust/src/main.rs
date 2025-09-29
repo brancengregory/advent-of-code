@@ -59,41 +59,32 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .flat_map(|(from, to_vec)| to_vec.iter().map(|to| (to.clone(), from.clone())))
         .collect();
 
-    reverse_subs.sort_by(|(to_a, from_a), (to_b, from_b)| {
-        to_b.len().cmp(&to_a.len()).then_with(|| from_a.len().cmp(&from_b.len()))
-    });
+    reverse_subs.sort_by_key(|(to, _)| std::cmp::Reverse(to.len()));
 
-    let mut queue: BinaryHeap<Reverse<(usize, usize, String)>> = BinaryHeap::new();
-    let mut visited: HashSet<String> = HashSet::new();
+    let mut current_molecule = molecule.clone();
+    let mut steps = 0;
 
-    queue.push(Reverse((0, molecule.len(), molecule.clone())));
-    visited.insert(molecule.clone());
-    
-    while let Some(Reverse((steps, _, current))) = queue.pop() {
-        if current == "e" {
-            println!("Part 2: {:?}", steps);
-            break;
-        }
-
+    // Keep reducing the molecule until it becomes "e".
+    while current_molecule != "e" {
+        let mut replaced_in_pass = false;
+        // Find the first (and therefore longest) possible replacement.
         for (to, from) in &reverse_subs {
-            let mut pos = 0;
-            while let Some(start) = current[pos..].find(to) {
-                let start = start + pos;
-                let m = format!(
-                    "{}{}{}",
-                    &current[..start],
-                    from,
-                    &current[start + to.len()..]
-                );
-
-                if visited.insert(m.clone()) && m.len() <= current.len() {
-                    queue.push(Reverse((steps + 1, m.len(), m)));
-                }
-
-                pos = start + 1;
+            if let Some(pos) = current_molecule.find(to) {
+                // Perform the replacement.
+                current_molecule.replace_range(pos..pos + to.len(), from);
+                steps += 1;
+                replaced_in_pass = true;
+                // Important: Break and restart the scan with the new, smaller molecule.
+                break;
             }
-        } 
+        }
+        // Failsafe in case the molecule can't be reduced.
+        if !replaced_in_pass {
+            panic!("Could not reduce the molecule further.");
+        }
     }
+
+    println!("Part 2: {}", steps);
     
     Ok(())
 }
