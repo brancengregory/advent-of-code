@@ -52,8 +52,19 @@ In this scenario, the player wins! (Barely.)
 
 You have *100 hit points*. The boss's actual stats are in your puzzle input. What is *the least amount of gold you can spend* and still win the fight?
 
-To begin, [get your puzzle input](21/input).
+Your puzzle answer was `78`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+Turns out the shopkeeper is working with the boss, and can persuade you to buy whatever items he wants. The other rules still apply, and he still only has one of each item.
+
+What is the *most* amount of gold you can spend and still *lose* the fight?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22RPG+Simulator+20XX%22+%2D+Day+21+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F21&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](21/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22RPG+Simulator+20XX%22+%2D+Day+21+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F21) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22RPG+Simulator+20XX%22+%2D+Day+21+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F21&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
