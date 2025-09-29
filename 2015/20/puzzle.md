@@ -30,8 +30,19 @@ The first house gets `10` presents: it is visited only by Elf `1`, which deliver
 
 What is the *lowest house number* of the house to get at least as many presents as the number in your puzzle input?
 
-Your puzzle input is `34000000`.
+Your puzzle answer was `786240`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+The Elves decide they don't want to visit an infinite number of houses. Instead, each Elf will stop after delivering presents to `50` houses. To make up for it, they decide to deliver presents equal to *eleven times* their number at each house.
+
+With these changes, what is the new *lowest house number* of the house to get at least as many presents as the number in your puzzle input?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Infinite+Elves+and+Infinite+Houses%22+%2D+Day+20+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F20&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Your puzzle input is still `34000000`.
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Infinite+Elves+and+Infinite+Houses%22+%2D+Day+20+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F20) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Infinite+Elves+and+Infinite+Houses%22+%2D+Day+20+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F20&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
