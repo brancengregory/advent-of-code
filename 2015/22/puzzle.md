@@ -116,8 +116,21 @@ Poison deals 3 damage. This kills the boss, and the player wins.
 
 You start with *50 hit points* and *500 mana points*. The boss's actual stats are in your puzzle input. What is the *least amount of mana* you can spend and still win the fight? (Do not include mana recharge effects as "spending" negative mana.)
 
-To begin, [get your puzzle input](22/input).
+Your puzzle answer was `1269`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+On the next run through the game, you increase the difficulty to *hard*.
+
+At the start of each *player turn* (before any other effects apply), you lose `1` hit point. If this brings you to or below `0` hit points, you lose.
+
+With the same starting stats for you and the boss, what is the *least amount of mana* you can spend and still win the fight?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](22/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
