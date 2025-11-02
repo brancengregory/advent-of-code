@@ -35,8 +35,38 @@ Of these, although `10 9 1` has the smallest quantum entanglement (`90`), the co
 
 What is the *quantum entanglement* of the first group of packages in the ideal configuration?
 
-To begin, [get your puzzle input](24/input).
+Your puzzle answer was `11266889531`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+That's weird... the sleigh still isn't balancing.
+
+"Ho ho ho", Santa muses to himself. "I forgot the trunk".
+
+Balance the sleigh again, but this time, separate the packages into *four groups* instead of three. The other constraints still apply.
+
+Given the example packages above, this would be some of the new unique first groups, their quantum entanglements, and one way to divide the remaining packages:
+
+```
+
+11 4    (QE=44); 10 5;   9 3 2 1; 8 7
+10 5    (QE=50); 11 4;   9 3 2 1; 8 7
+9 5 1   (QE=45); 11 4;   10 3 2;  8 7
+9 4 2   (QE=72); 11 3 1; 10 5;    8 7
+9 3 2 1 (QE=54); 11 4;   10 5;    8 7
+8 7     (QE=56); 11 4;   10 5;    9 3 2 1
+
+```
+
+Of these, there are three arrangements that put the minimum (two) number of packages in the first group: `11 4`, `10 5`, and `8 7`. Of these, `11 4` has the lowest quantum entanglement, and so it is selected.
+
+Now, what is the *quantum entanglement* of the first group of packages in the ideal configuration?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22It+Hangs+in+the+Balance%22+%2D+Day+24+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F24&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](24/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22It+Hangs+in+the+Balance%22+%2D+Day+24+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F24) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22It+Hangs+in+the+Balance%22+%2D+Day+24+%2D+Advent+of+Code+2015&url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F24&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
