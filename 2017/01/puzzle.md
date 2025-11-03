@@ -22,8 +22,29 @@ For example:
 
 *What is the solution* to your captcha?
 
-To begin, [get your puzzle input](1/input).
+Your puzzle answer was `1343`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+You notice a progress bar that jumps to 50% completion. Apparently, the door isn't yet satisfied, but it did emit a *star* as encouragement. The instructions change:
+
+Now, instead of considering the *next* digit, it wants you to consider the digit *halfway around* the circular list. That is, if your list contains `10` items, only include a digit in your sum if the digit `10/2 = 5` steps forward matches it. Fortunately, your list has an even number of elements.
+
+For example:
+
+* `1212` produces `6`: the list contains `4` items, and all four digits match the digit `2` items ahead.
+* `1221` produces `0`, because every comparison is between a `1` and a `2`.
+* `123425` produces `4`, because both `2`s match each other, but no other digit has a match.
+* `123123` produces `12`.
+* `12131415` produces `4`.
+
+*What is the solution* to your new captcha?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Inverse+Captcha%22+%2D+Day+1+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F1&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](1/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Inverse+Captcha%22+%2D+Day+1+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F1) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Inverse+Captcha%22+%2D+Day+1+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F1&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
