@@ -13,8 +13,27 @@ For example:
 
 The system's full passphrase list is available as your puzzle input. *How many passphrases are valid?*
 
-To begin, [get your puzzle input](4/input).
+Your puzzle answer was `451`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+For added security, yet another system policy has been put in place. Now, a valid passphrase must contain no two words that are anagrams of each other - that is, a passphrase is invalid if any word's letters can be rearranged to form any other word in the passphrase.
+
+For example:
+
+* `abcde fghij` is a valid passphrase.
+* `abcde xyz ecdab` is not valid - the letters from the third word can be rearranged to form the first word.
+* `a ab abc abd abf abj` is a valid passphrase, because *all* letters need to be used when forming another word.
+* `iiii oiii ooii oooi oooo` is valid.
+* `oiii ioii iioi iiio` is not valid - any of these words can be rearranged to form any other word.
+
+Under this new system policy, *how many passphrases are valid?*
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22High%2DEntropy+Passphrases%22+%2D+Day+4+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F4&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](4/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22High%2DEntropy+Passphrases%22+%2D+Day+4+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F4) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22High%2DEntropy+Passphrases%22+%2D+Day+4+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F4&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
