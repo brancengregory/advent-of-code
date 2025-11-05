@@ -22,8 +22,21 @@ At this point, we've reached a state we've seen before: `2 4 1 2` was already se
 
 Given the initial block counts in your puzzle input, *how many redistribution cycles* must be completed before a configuration is produced that has been seen before?
 
-To begin, [get your puzzle input](6/input).
+Your puzzle answer was `11137`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+Out of curiosity, the debugger would also like to know the size of the loop: starting from a state that has already been seen, how many block redistribution cycles must be performed before that same state is seen again?
+
+In the example above, `2 4 1 2` is seen again after four cycles, and so the answer in that example would be `4`.
+
+*How many cycles* are in the infinite loop that arises from the configuration in your puzzle input?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](6/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
