@@ -39,4 +39,4 @@ Your puzzle input is `369`.
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Spinlock%22+%2D+Day+17+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F17&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=%22Spinlock%22+%2D+Day+17+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F17) [Twitter](https://twitter.com/intent/tweet?text=%22Spinlock%22+%2D+Day+17+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F17&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.

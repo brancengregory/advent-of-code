@@ -49,4 +49,4 @@ To begin, [get your puzzle input](24/input).
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Electromagnetic+Moat%22+%2D+Day+24+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=%22Electromagnetic+Moat%22+%2D+Day+24+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24) [Twitter](https://twitter.com/intent/tweet?text=%22Electromagnetic+Moat%22+%2D+Day+24+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.

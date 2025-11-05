@@ -25,4 +25,4 @@ To begin, [get your puzzle input](16/input).
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16) [Twitter](https://twitter.com/intent/tweet?text=%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
