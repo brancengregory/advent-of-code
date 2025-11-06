@@ -26,8 +26,17 @@ You might also encounter `<=` (less than or equal to) or `!=` (not equal to). Ho
 
 *What is the largest value in any register* after completing the instructions in your puzzle input?
 
-To begin, [get your puzzle input](8/input).
+Your puzzle answer was `5102`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+To be safe, the CPU also needs to know *the highest value held in any register during this process* so that it can decide how much memory to allocate to these operations. For example, in the above instructions, the highest value ever held was `10` (in register `c` after the third instruction was evaluated).
 
 Answer:
 
-You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=%22I+Heard+You+Like+Registers%22+%2D+Day+8+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F8) [Twitter](https://twitter.com/intent/tweet?text=%22I+Heard+You+Like+Registers%22+%2D+Day+8+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F8&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](8/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22I+Heard+You+Like+Registers%22+%2D+Day+8+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F8) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22I+Heard+You+Like+Registers%22+%2D+Day+8+%2D+Advent+of+Code+2017&url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F8&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.

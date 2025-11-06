@@ -26,9 +26,10 @@ fn main() {
 
 	input.iter().for_each(|x| {
 		let mut c_splits = x[1].split_whitespace();
-		let v1: &str = c_splits.next().unwrap();
+		let r: &str = c_splits.next().unwrap();
+		let v1: i32 = *registers.get(r).unwrap();
 		let op: &str = c_splits.next().unwrap();
-		let v2: &str = c_splits.next().unwrap();
+		let v2: i32 = c_splits.next().unwrap().parse::<i32>().unwrap();
 
 		let res: bool = match op {
 			">" => v1 > v2,
