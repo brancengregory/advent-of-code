@@ -1,35 +1,25 @@
-use std::any::Any;
-use std::io::{BufReader, Read};
-use std::fs::File;
-use std::ops::Add;
-use std::path::Path;
-
-fn read_input<'a>(p: &str, s: &mut Vec<u8>) {
-    let mut f = File::open(p).unwrap();
-  
-    f.read_to_end(s).unwrap();
-}
+use std::fs;
 
 fn main() {
-    let mut s: Vec<u8> = Vec::new();
-
-    read_input("../input", &mut s);
+    let s: Vec<u8> = fs::read("../input").expect("Failed to read input file");
 
     let mut sum = 0;
     let mut basement = 0;
 
-    for (index, e) in s.clone().into_iter().enumerate() {
-      let b = match e {
-        40 => 1,
-        41 => -1,
-        _ => 0
-      };
+    for (index, e) in s.iter().enumerate() {
+        let b = match *e {
+            b'(' => 1,
+            b')' => -1,
+            _ => 0,
+        };
 
-      sum += b;
+        sum += b;
 
-      if (basement == 0) & (sum < 0) { basement = index };
-    };
+        if basement == 0 && sum < 0 {
+            basement = index + 1;
+        }
+    }
 
-    println!("Part One: {:?}", sum);
-    println!("Part Two: {:?}", basement + 1);
+    println!("Part One: {}", sum);
+    println!("Part Two: {}", basement);
 }
