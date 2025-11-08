@@ -1,35 +1,24 @@
-use std::fs::File;
-use std::io::{BufReader, Read};
-
-fn read_input(p: &str) -> Vec<u8> {
-    let f = File::open(p).unwrap();
-    let mut r = BufReader::new(f);
-    let mut s = Vec::new();
-
-    r.read_to_end(&mut s).unwrap();
-
-    return s
-}
+use std::fs::read;
 
 fn next_house(c: (i32, i32), i: u8) -> (i32, i32) {
     match i {
-        60 => (c.0 - 1, c.1),
-        62 => (c.0 + 1, c.1),
-        94 => (c.0, c.1 + 1),
-        118 => (c.0, c.1 - 1),
+        b'<' => (c.0 - 1, c.1),
+        b'>' => (c.0 + 1, c.1),
+        b'^' => (c.0, c.1 + 1),
+        b'v' => (c.0, c.1 - 1),
         _ => panic!()
     }
 }
 
 fn main() {
-    let input = read_input("../input");
+    let input = read("../input").unwrap();
 
     let mut coords: Vec<(i32, i32)> = Vec::new();
     coords.push((0, 0));
 
-    for x in input.clone() {
+    for x in input.iter() {
         let last_coords = coords.last().unwrap();
-        let new_coords = next_house(*last_coords, x);
+        let new_coords = next_house(*last_coords, *x);
         coords.push(new_coords)
     }
 
@@ -44,9 +33,9 @@ fn main() {
     coords.push((0, 0));
     coords.push((0, 0));
 
-    for (i, x) in input.into_iter().enumerate() {
+    for (i, x) in input.iter().enumerate() {
         let last_coords = coords[i];
-        let new_coords = next_house(last_coords, x);
+        let new_coords = next_house(last_coords, *x);
         coords.push(new_coords)
     }
 
