@@ -1,129 +1,102 @@
-use std::{fs::File, io::Read, vec, collections::HashMap};
+use std::{fs::read_to_string, vec, collections::HashMap};
 
 fn is_vowel(c: &char) -> bool {
-    let vowels: Vec<char> = vec!['a', 'e', 'i', 'o', 'u'];
-    
-    let v: bool = vowels
-        .into_iter()
-        .map(|x| x == *c)
-        .reduce(|acc, e| acc || e)
-        .unwrap();
-
-    return v
-}
-
-fn has_three_vowels(s: &String) -> bool {
-    let num_vowels = s.chars().filter(is_vowel).count();
-    if num_vowels >= 3 { return true }
-    return false
-}
-
-fn has_double_letter(s: &String) -> bool {
-    let mut last_character: char = Default::default();
-
-    for x in s.chars() {
-        if x == last_character {
-            return true
-        }
-
-        last_character = x;
+    match c {
+      'a' | 'e' | 'i' | 'o' | 'u' => true,
+      _ => false
     }
-
-    return false
 }
 
-fn has_double_letter_anywhere(s: &String) -> bool {
+fn has_three_vowels(s: &str) -> bool {
+    let num_vowels = s.chars().filter(is_vowel).count();
+    num_vowels >= 3
+}
+
+fn has_double_letter(s: &str) -> bool {
+    s.chars()
+        .zip(s.chars().skip(1))
+        .any(|(a, b)| a == b)
+}
+
+fn has_double_letter_anywhere(s: &str) -> bool {
     let mut pairs_seen: HashMap<(char, char), usize> = HashMap::new();
+    let s_chars: Vec<char> = s.chars().collect();
     
-    for (i, window) in s.chars().collect::<Vec<_>>().windows(2).enumerate() {
+    for (i, window) in s_chars.windows(2).enumerate() {
         let pair = (window[0], window[1]);
 
         if let Some(&last_index) = pairs_seen.get(&pair) {
             if i > last_index + 1 {
                 return true; // Found a non-overlapping pair
             }
+        } else {
+            pairs_seen.insert(pair, i);
         }
-
-        pairs_seen.insert(pair, i);
     }
 
-    return false
+    false
 }
 
-fn has_double_letter_skip(s: &String) -> bool {
+fn has_double_letter_skip(s: &str) -> bool {
     let c: Vec<char> = s.chars().collect();
-    let b: Vec<bool> = c.windows(3).map(|x| x[0] == x[2]).collect();
-    
-    return b.into_iter().reduce(|acc, e| acc || e).unwrap()
+    c.windows(3).any(|x| x[0] == x[2])
 }
 
-fn has_no_bad_strings(s: &String) -> bool {
-    let bad_strings = vec!["ab", "cd", "pq", "xy"];
+fn has_no_bad_strings(s: &str) -> bool {
+    let bad_strings = ["ab", "cd", "pq", "xy"];
     
-    let bs: bool = bad_strings
-        .into_iter()
-        .map(|x| s.contains(x))
-        .reduce(|acc, e| acc || e)
-        .unwrap();
-
-    return !bs
+    !bad_strings
+        .iter()
+        .any(|&x| s.contains(x))
 }
 
-fn is_nice(s: &String) -> bool {
+fn is_nice(s: &str) -> bool {
     has_no_bad_strings(s) &&
         has_double_letter(s) &&
         has_three_vowels(s)
 }
 
-fn is_new_nice(s: &String) -> bool {
+fn is_new_nice(s: &str) -> bool {
     has_double_letter_anywhere(s) &&
         has_double_letter_skip(s)
 }
 
 fn read_input(p: &str) -> Vec<String> {
-    let mut f = File::open(p).unwrap();
-    let mut s = String::new();
+    let s = read_to_string(p).unwrap();
 
-    f.read_to_string(&mut s).unwrap();
-
-    let x = s
-        .trim()
-        .split("\n")
-        .map(|x| x.to_string())
-        .collect::<Vec<String>>();
-
-    return x
+    s
+        .lines()
+        .map(String::from)
+        .collect()
 }
 
 fn main() {
     let input = read_input("../input");
 
-    let ans1 = input.clone()
-        .into_iter()
-        .filter(is_nice)
+    let ans1 = input
+        .iter()
+        .filter(|s| is_nice(s))
         .count();
 
-    println!("Problem 1: {:?}", ans1);
+    println!("Problem 1: {}", ans1);
 
     let ans2 = input
-        .into_iter()
-        .filter(is_new_nice)
+        .iter()
+        .filter(|s| is_new_nice(s))
         .count();
 
-    println!("Problem 2: {:?}", ans2)
+    println!("Problem 2: {}", ans2)
 }
 
 #[test]
 fn test_has_double_letter_anywhere() {
-    let s1 = &String::from("xyxy");
-    let s2 = &String::from("aabcdefgaa");
-    let s3 = &String::from("aaa");
+    let s1 = "xyxy";
+    let s2 = "aabcdefgaa";
+    let s3 = "aaa";
+    let s4 = "aaaa";
 
-    let ts: Vec<&String> = vec![s1, s2, s3];
-    let b: Vec<bool> = ts.into_iter().map(has_double_letter_anywhere).collect();
-
-    assert_eq!(
-        b,
-        vec![true, true, false]
-    )
+    assert_eq!(has_double_letter_anywhere(s1), true);
+    assert_eq!(has_double_letter_anywhere(s2), true);
+    assert_eq!(has_double_letter_anywhere(s3), false);
+    assert_eq!(has_double_letter_anywhere(s4), true);
 }
