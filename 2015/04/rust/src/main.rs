@@ -1,43 +1,35 @@
-use std::{fmt::format, fs::File, io::Read};
-use md5::{compute, Digest};
+use std::fs::read_to_string;
+use std::fmt::Write;
+use md5::compute;
 
-fn read_input(p: &str) -> String {
-    let mut f = File::open(p).unwrap();
-    let mut s = String::new();
-    f.read_to_string(&mut s);
-    
-    return s.trim().to_owned();
+
+fn find_hash(input: &str, prefix: &str) -> u32 {
+    let mut i = 0;
+    let mut s = input.to_string();
+    let base_len = s.len();
+    let mut hex_string = String::new();
+
+    loop {
+        i += 1;
+        write!(&mut s, "{}", i).unwrap();
+        let h = compute(s.as_bytes());
+        write!(&mut hex_string, "{:x}", h).unwrap();
+        if hex_string.starts_with(prefix) {
+            break;
+        };
+        s.truncate(base_len);
+        hex_string.clear();
+    }
+
+    i
 }
 
 fn main() {
-    let input = read_input("../input").trim().to_owned();
-    
-    let mut i = 0;
-    let mut s = String::new();
-    let mut h: Digest;
-    let mut done: bool = false;
-    let mut hex_string = String::new();
+    let input = read_to_string("../input").unwrap().trim().to_string();
+   
+    let ans1 = find_hash(&input, "00000");
+    println!("Answer 1: {}", ans1);
 
-    while !done {
-        i += 1;
-        s = input.clone() + &i.to_string();
-        h = compute(&s);
-        hex_string = format!("{:x}", h);
-        done = hex_string.starts_with("00000");
-    }
-
-    println!("Answer 1: {:?}", i);
-
-    i = 0;
-    done = false;
-
-    while !done {
-        i += 1;
-        s = input.clone() + &i.to_string();
-        h = compute(&s);
-        hex_string = format!("{:x}", h);
-        done = hex_string.starts_with("000000");
-    }
-
-    println!("Answer 2: {:?}", i)
+    let ans2 = find_hash(&input, "000000");
+    println!("Answer 2: {}", ans2);
 }
