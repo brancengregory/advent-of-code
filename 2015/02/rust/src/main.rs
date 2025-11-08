@@ -1,6 +1,4 @@
-use std::path::Path;
-use std::fs::File;
-use std::io::{BufRead, BufReader, Read};
+use std::fs::read_to_string;
 
 fn surface_area(l: u32, w: u32, h: u32) -> u32 {
     (2*l*w) + (2*w*h) + (2*h*l)
@@ -25,42 +23,35 @@ fn volume(l: u32, w: u32, h: u32) -> u32 {
 }
 
 fn read_input(p: &str) -> Vec<Vec<u32>> {
-    let f = File::open(p).unwrap();
-    let mut r = BufReader::new(f);
-    
-    let mut s = String::new();
-    let _ = r.read_to_string(&mut s);
+    let s = read_to_string(p).unwrap();
 
     let x = s
-        .split("\n")
+        .lines()
         .filter(|x| !x.is_empty())
-        .map(|x| x.split("x").map(|x| x.parse::<u32>().unwrap()).collect::<Vec<_>>())
+        .map(|x| x.split('x').map(|x| x.parse::<u32>().unwrap()).collect::<Vec<_>>())
         .collect::<Vec<_>>();
 
-    return x
+    x
 }
 
 fn main() {
     let input = read_input("../input");
 
     let ans1: u32 = input
-        .clone()
-        .into_iter()
+        .iter()
         .map(|x| {
             surface_area(x[0], x[1], x[2]) + smallest_face_area(x[0], x[1], x[2])
         })
-        .reduce(|acc, e| acc + e)
-        .unwrap();
+        .sum();
 
-    println!("Answer 1: {:?}", ans1);
+    println!("Answer 1: {}", ans1);
 
     let ans2: u32 = input
-        .into_iter()
+        .iter()
         .map(|x| {
             smallest_face_perimeter(x[0], x[1], x[2]) + volume(x[0], x[1], x[2])
         })
-        .reduce(|acc, e| acc + e)
-        .unwrap();
+        .sum();
 
-    println!("Answer 2: {:?}", ans2);
+    println!("Answer 2: {}", ans2);
 }
