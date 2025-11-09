@@ -1,45 +1,33 @@
 use std::{collections::HashMap, fs::File, io::Read};
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
-enum Operator {
-    And,
-    Or,
-    Not,
-    LShift,
-    RShift
-}
-
-impl From<&str> for Operator {
-    fn from(value: &str) -> Self {
-        match value {
-            "AND" => Operator::And,
-            "OR" => Operator::Or,
-            "LSHIFT" => Operator::LShift,
-            "RSHIFT" => Operator::RShift,
-            "NOT" => Operator::Not,
-            _ => panic!("Could not parse operator string: {:?}", value)
-        }
-    }
-}
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
 enum Operand {
-    Signal(i64),
+    Signal(u16),
     Wire(String)
 }
 
 impl From<&str> for Operand {
     fn from(value: &str) -> Self {
-        value.parse::<i64>()
+        value.parse::<u16>()
             .map(Operand::Signal)
             .unwrap_or_else(|_| Operand::Wire(value.to_string()))
     }
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(Debug, Clone)]
+enum Operation {
+    Assign(Operand),
+    Not(Operand),
+    And(Operand, Operand),
+    Or(Operand, Operand),
+    LShift(Operand, Operand),
+    RShift(Operand, Operand)
+}
+
+#[derive(Debug, Clone)]
 struct Instruction {
-    operator: Option<Operator>,
-    operands: Option<Vec<Operand>>,
+    operation: Operation,
     target: String
 }
 
@@ -91,7 +79,7 @@ impl From<&str> for Instruction {
 }
 
 impl Instruction {
-    fn evaluate(&self, cache: &mut HashMap<String, i64>, instructions: &HashMap<String, Instruction>) -> i64 {
+    fn evaluate(&self, cache: &mut HashMap<String, u16>, instructions: &HashMap<String, Instruction>) -> u16 {
         if let Some(&value) = cache.get(&self.target) {
             return value
         }
@@ -136,7 +124,7 @@ impl Instruction {
 }
 
 impl Operand {
-    fn evaluate(&self, cache: &mut HashMap<String, i64>, instructions: &HashMap<String, Instruction>) -> i64 {
+    fn evaluate(&self, cache: &mut HashMap<String, u16>, instructions: &HashMap<String, Instruction>) -> u16 {
         match self {
             Operand::Signal(value) => *value,
             Operand::Wire(wire) => {
@@ -169,8 +157,8 @@ fn read_instructions(p: &str) -> HashMap<String, Instruction> {
 
 fn main() {
     let instructions = read_instructions("../input");
-    let mut result_cache: HashMap<String, i64> = HashMap::new();
-    let mut ans1: i64 = 0;
+    let mut result_cache: HashMap<String, u16> = HashMap::new();
+    let mut ans1: u16 = 0;
 
     if let Some(instruction) = instructions.get("a") {
         ans1 = instruction.evaluate(&mut result_cache, &instructions);
