@@ -19,8 +19,21 @@ For example:
 
 *How many blocks away* is Easter Bunny HQ?
 
-To begin, [get your puzzle input](1/input).
+Your puzzle answer was `243`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+Then, you notice the instructions continue on the back of the Recruiting Document. Easter Bunny HQ is actually at the first location you visit twice.
+
+For example, if your instructions are `R8, R4, R4, R8`, the first location you visit twice is `4` blocks away, due East.
+
+How many blocks away is the *first location you visit twice*?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22No+Time+for+a+Taxicab%22+%2D+Day+1+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F1&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](1/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22No+Time+for+a+Taxicab%22+%2D+Day+1+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F1) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22No+Time+for+a+Taxicab%22+%2D+Day+1+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F1&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
