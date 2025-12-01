@@ -14,8 +14,30 @@ For example:
 
 *How many IPs* in your puzzle input support TLS?
 
-To begin, [get your puzzle input](7/input).
+Your puzzle answer was `105`.
 
-Answer:
+\--- Part Two ---
+----------
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Internet+Protocol+Version+7%22+%2D+Day+7+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F7&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You would also like to know which IPs support *SSL* (super-secret listening).
+
+An IP supports SSL if it has an Area-Broadcast Accessor, or *ABA*, anywhere in the supernet sequences (outside any square bracketed sections), and a corresponding Byte Allocation Block, or *BAB*, anywhere in the hypernet sequences. An ABA is any three-character sequence which consists of the same character twice with a different character between them, such as `xyx` or `aba`. A corresponding BAB is the same characters but in reversed positions: `yxy` and `bab`, respectively.
+
+For example:
+
+* `aba[bab]xyz` supports SSL (`aba` outside square brackets with corresponding `bab` within square brackets).
+* `xyx[xyx]xyx` does *not* support SSL (`xyx`, but no corresponding `yxy`).
+* `aaa[kek]eke` supports SSL (`eke` in supernet with corresponding `kek` in hypernet; the `aaa` sequence is not related, because the interior character must be different).
+* `zazbz[bzb]cdb` supports SSL (`zaz` has no corresponding `aza`, but `zbz` has a corresponding `bzb`, even though `zaz` and `zbz` overlap).
+
+*How many IPs* in your puzzle input support SSL?
+
+Your puzzle answer was `258`.
+
+Both parts of this puzzle are complete! They provide two gold stars: \*\*
+
+At this point, you should [return to your Advent calendar](/2016) and try another puzzle.
+
+If you still want to see it, you can [get your puzzle input](7/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+%22Internet+Protocol+Version+7%22+%2D+Day+7+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F7) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+%22Internet+Protocol+Version+7%22+%2D+Day+7+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F7&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
