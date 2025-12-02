@@ -51,8 +51,21 @@ As you can see, this display technology is extremely powerful, and will soon dom
 
 There seems to be an intermediate check of the voltage used by the display: after you swipe your card, if the screen did work, *how many pixels should be lit?*
 
-To begin, [get your puzzle input](8/input).
+Your puzzle answer was `128`.
 
-Answer:
+\--- Part Two ---
+----------
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You notice that the screen is only capable of displaying capital letters; in the font it uses, each letter is `5` pixels wide and `6` tall.
+
+After you swipe your card, *what code is the screen trying to display?*
+
+Your puzzle answer was `EOARGPHYAO`.
+
+Both parts of this puzzle are complete! They provide two gold stars: \*\*
+
+At this point, you should [return to your Advent calendar](/2016) and try another puzzle.
+
+If you still want to see it, you can [get your puzzle input](8/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+%22Two%2DFactor+Authentication%22+%2D+Day+8+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F8&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
