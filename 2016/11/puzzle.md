@@ -153,8 +153,30 @@ In this arrangement, it takes `11` steps to collect all of the objects at the fo
 
 In your situation, what is the *minimum number of steps* required to bring all of the objects to the fourth floor?
 
-To begin, [get your puzzle input](11/input).
+Your puzzle answer was `31`.
 
-Answer:
+\--- Part Two ---
+----------
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+You step into the cleanroom separating the lobby from the isolated area and put on the hazmat suit.
+
+Upon entering the isolated containment area, however, you notice some extra parts on the first floor that weren't listed on the record outside:
+
+* An elerium generator.
+* An elerium-compatible microchip.
+* A dilithium generator.
+* A dilithium-compatible microchip.
+
+These work just like the other generators and microchips. You'll have to get them up to assembly as well.
+
+What is the *minimum number of steps* required to bring all of the objects, including these four new ones, to the fourth floor?
+
+Your puzzle answer was `55`.
+
+Both parts of this puzzle are complete! They provide two gold stars: \*\*
+
+At this point, you should [return to your Advent calendar](/2016) and try another puzzle.
+
+If you still want to see it, you can [get your puzzle input](11/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
