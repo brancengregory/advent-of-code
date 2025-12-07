@@ -17,11 +17,13 @@ fn main() {
 		})
 		.collect();
 
-	let fresh: Vec<(u64, u64)> = fresh_str.iter()
+	let mut fresh: Vec<(u64, u64)> = fresh_str.iter()
 		.map(|x| {
 			(x[0].parse::<u64>().unwrap(), x[1].parse::<u64>().unwrap())
 		})
 		.collect();
+
+	fresh.sort();
 
 	let ids: Vec<u64> = input[fresh.len() + 1..input.len()].to_vec().iter().map(|x| x.parse::<u64>().unwrap()).collect();
 
@@ -37,14 +39,29 @@ fn main() {
 
 	println!("{}", ans);
 
-	let mut fresh_ids: HashSet<u64> = HashSet::new();
-	fresh.into_iter().for_each(|(start, end)| {
-		for i in start..=end {
-			fresh_ids.insert(i);
-		}
-	});
-
+	// TODO: too inefficient; need new strat
+	//
+	let mut fresh_ids: Vec<(u64, u64)> = Vec::new();
 	println!("{:?}", fresh_ids);
+
+	let mut fresh_iter = fresh.iter();
+	let mut current = fresh.iter().next().unwrap();
+
+	while let Some(t) = fresh_iter.next() {
+		let covers_start = (current.0..=current.1).contains(&t.0);
+		let covers_end = (current.0..=current.1).contains(&t.1);
+
+		match (covers_start, covers_end) {
+			(true, true) => { continue; },
+			(true, false) => {
+				current = (current.0, t.1)
+			},
+			_ => {
+				fresh_ids.push(current);
+				current = t;
+			}
+		}
+	}
 
 	let ans2 = fresh_ids.len();
 	println!("{}", ans2);
