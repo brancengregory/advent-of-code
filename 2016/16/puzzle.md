@@ -49,8 +49,19 @@ In this example, the correct checksum would therefore be `01100`.
 
 The first disk you have to fill has length `272`. Using the initial state in your puzzle input, *what is the correct checksum*?
 
-Your puzzle input is `10111011111001111`.
+Your puzzle answer was `11101010111100010`.
 
-Answer:
+\--- Part Two ---
+----------
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Dragon+Checksum%22+%2D+Day+16+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+The second disk you have to fill has length `35651584`. Again using the initial state in your puzzle input, *what is the correct checksum* for this disk?
+
+Your puzzle answer was `01001101001000101`.
+
+Both parts of this puzzle are complete! They provide two gold stars: \*\*
+
+At this point, you should [return to your Advent calendar](/2016) and try another puzzle.
+
+Your puzzle input was `10111011111001111`.
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+%22Dragon+Checksum%22+%2D+Day+16+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F16) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+%22Dragon+Checksum%22+%2D+Day+16+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F16&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
