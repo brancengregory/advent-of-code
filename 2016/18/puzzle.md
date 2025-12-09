@@ -60,8 +60,17 @@ In ten rows, this larger example has `38` safe tiles.
 
 Starting with the map in your puzzle input, in a total of `40` rows (including the starting row), *how many safe tiles* are there?
 
-To begin, [get your puzzle input](18/input).
+Your puzzle answer was `1963`.
+
+The first half of this puzzle is complete! It provides one gold star: \*
+
+\--- Part Two ---
+----------
+
+*How many safe tiles* are there in a total of `400000` rows?
 
 Answer:
 
-You can also [Shareon [Twitter](https://twitter.com/intent/tweet?text=%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
+Although it hasn't changed, you can still [get your puzzle input](18/input).
+
+You can also [Shareon [Bluesky](https://bsky.app/intent/compose?text=I%27ve+completed+Part+One+of+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18) [Twitter](https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&related=ericwastl&hashtags=AdventOfCode) [Mastodon](javascript:void(0);)] this puzzle.
