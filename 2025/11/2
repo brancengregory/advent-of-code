@@ -9,7 +9,7 @@ fn read_input(p: impl AsRef<Path>) -> HashMap<String, HashSet<String>> {
     input.lines()
         .for_each(|l| {
             let mut splits = l.split(":");
-            let node = splits.next().expect("Couldn't find first part of line").trim().to_string();
+            let node = splits.next().expect("Couldn't find first part of line").to_string();
             let edges: HashSet<String> = splits.next().expect("Couldn't find second part of line")
                 .split_whitespace()
                 .map(String::from)
@@ -38,26 +38,6 @@ fn dfs(graph: &HashMap<String, HashSet<String>>, current: &str, target: &str, pa
     }
 }
 
-fn dfs_count(graph: &HashMap<String, HashSet<String>>, current: &str, target: &str, memo: &mut HashMap<String, usize>) -> usize {
-    if current == target {
-        return 1;
-    }
-
-    if let Some(&count) = memo.get(current) {
-        return count;
-    }
-    
-    let mut total_paths = 0;
-    if let Some(neighbors) = graph.get(current) {
-        for neighbor in neighbors {
-            total_paths += dfs_count(graph, neighbor, target, memo);
-        }
-    }
-
-    memo.insert(current.to_string(), total_paths);
-    total_paths
-}
-
 fn main() {
     let input = read_input("../input");
 
@@ -74,17 +54,9 @@ fn main() {
     completed_paths.clear();
     current_path.clear();
     
-    let mut memo: HashMap<String, usize> = HashMap::new();
+    let start_node = "svr";
+    current_path.push("you".to_string());
+    dfs(&input, start_node, end_node, &mut current_path, &mut completed_paths);
 
-    let svr_fft_paths = dfs_count(&input, "svr", "fft", &mut memo);
-
-    memo.clear();
-    let fft_dac_paths = dfs_count(&input, "fft", "dac", &mut memo);
-
-    memo.clear();
-    let dac_out_paths = dfs_count(&input, "dac", "out", &mut memo);
-
-    let total_paths = svr_fft_paths * fft_dac_paths * dac_out_paths;
-    println!("{:?}", total_paths);
+    completed_paths.iter().filter(|&p| p.contains("dac") && p.contains("fft"))
 }
-
